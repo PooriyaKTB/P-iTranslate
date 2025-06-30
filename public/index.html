@@ -3,34 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Language Teacher</title>
+  <title>PiTranslate</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
 </head>
 <body>
-  <h1>AI Language Teacher</h1>
+  <h1>P-iTranslate</h1>
   <p class="notice" id="trialMsg">You're in guest mode. Only basic translation is available.</p>
 
-  <button onclick="showLogin()">Login / Sign up</button>
-  <button id="btnOut" onclick="signOut()" style="display:none">Sign Out</button>
+  <button id="btnLogin">Login / Sign up</button>
+  <button id="btnOut" style="display:none">Sign Out</button>
   <span id="authStatus">Guest mode</span>
 
   <div id="loginModal" class="modal hidden">
     <div class="modal-content">
-      <span class="close" onclick="hideLogin()">&times;</span>
+      <span class="close" id="btnClose">&times;</span>
       <h2>Login or Sign Up</h2>
       <input id="authEmail" type="email" placeholder="Email">
       <input id="authPass" type="password" placeholder="Password">
       <div style="margin-top:10px;">
-        <button onclick="signIn()">Sign In</button>
-        <button onclick="signUp()">Sign Up</button>
+        <button id="btnSignIn">Sign In</button>
+        <button id="btnSignUp">Sign Up</button>
       </div>
     </div>
   </div>
 
   <div id="langSelect">
-    <label>From: 
+    <label>From:
       <select id="sourceLang">
         <option value="auto" selected>Auto Detect</option>
         <option value="en">English</option>
@@ -39,7 +37,7 @@
         <option value="de">German</option>
       </select>
     </label>
-    <label>To: 
+    <label>To:
       <select id="targetLang">
         <option value="en">English</option>
         <option value="fa">Persian</option>
@@ -50,10 +48,10 @@
   </div>
 
   <textarea id="inputText" placeholder="Enter text to translate..."></textarea>
-  <button onclick="translate()">Translate</button>
-  <button onclick="startVoice()">🎙 Speak</button>
+  <button id="btnTranslate">Translate</button>
+  <button id="btnSpeak">🎙 Speak</button>
   <div id="output"></div>
 
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>

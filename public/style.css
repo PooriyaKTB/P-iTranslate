@@ -1,10 +1,9 @@
 body {
-  font-family: system-ui, sans-serif;
+  font-family: sans-serif;
   background: #f6f9fc;
-  color: #333;
+  padding: 20px;
   max-width: 700px;
   margin: auto;
-  padding: 20px;
 }
 h1 {
   color: #0066cc;
