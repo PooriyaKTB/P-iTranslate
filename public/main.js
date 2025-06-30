@@ -68,8 +68,8 @@ async function translate() {
   const src = $("sourceLang").value;
   const tgt = $("targetLang").value;
   const prompt = src === "auto"
-    ? `Detect the input language and translate it to ${tgt}. Return only the translation:\n"""${txt}"""`
-    : `Translate this from ${src} to ${tgt}. Return only the translation:\n"""${txt}"""`;
+    ? `Detect the input language and translate it to ${tgt}. Return only the translation:\n${txt}`
+    : `Translate this from ${src} to ${tgt}. Return only the translation:\n${txt}`;
 
   const token = auth.currentUser ? await auth.currentUser.getIdToken() : "";
   const res = await fetch("/.netlify/functions/openai", {
