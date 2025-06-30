@@ -48,9 +48,19 @@ export async function handler(event) {
     })
   }).then(r => r.json());
 
-  return {
-    statusCode: 200,
-    headers,
-    body: JSON.stringify({ content: gpt.choices?.[0]?.message?.content || "" })
-  };
+  const result = gpt?.choices?.[0]?.message?.content;
+const debug = {
+  result,
+  usage: gpt?.usage,
+  prompt_sent: prompt,
+  full: gpt
+};
+
+return {
+  statusCode: 200,
+  headers,
+  body: JSON.stringify(
+    result ? { content: result } : { error: "No content", debug }
+  )
+};
 }
